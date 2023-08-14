@@ -1,6 +1,5 @@
 import DataAcessObject.UsuarioDAO;
 import entidades.Usuario;
-
 import java.util.Scanner;
 
 public class App {
@@ -8,7 +7,6 @@ public class App {
         Scanner entrada = new Scanner(System.in);
 
         Usuario user = new Usuario();
-
         System.out.println("Digite seu nome");
         String nome = entrada.nextLine();
         user.setNome(nome);
@@ -24,9 +22,12 @@ public class App {
         if(!new UsuarioDAO().cadastrarUsuario(user)){
             System.out.println("Usuario cadastrado com sucesso!");
         } else {
-
-
-            System.out.println("Algo deu errado :(");
+            System.out.println("Algo deu errado :( ");
         }
+
+        String dado = new UsuarioDAO().selectUsuario();
+
+        System.out.println(dado);
+
     }
 }
